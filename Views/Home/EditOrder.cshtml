@@ -1,0 +1,44 @@
+﻿@model IEnumerable<StoreInventoryApplication.DataModels.ProdId_N_Count>
+
+@{
+    ViewData["Title"] = "EditOrder";
+}
+
+<h1>EditOrder</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "ChangeQuantity", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="FinalyzeOrder" asp-route-id="@Model.First().LocationKey">Finalyze Order</a>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<StoreInventoryApplication.DataModels.Product>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-action="AddProduct"> + Add New Product</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assigned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountPerCase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Constraint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PricePerItem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Width)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assigned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountPerCase)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Constraint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InventoryCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePerItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                <a asp-action="EditProduct" asp-route-id="@item.Id">Edit</a>
+                <a asp-action="RemoveProduct" asp-route-id="@item.Id">Remove</a>
+            </td>
+        </tr>
+      
+}
+    </tbody>
+</table>
